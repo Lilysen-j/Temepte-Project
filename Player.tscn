@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dhrissyqt1l0m"]
+
+[ext_resource type="Script" uid="uid://c08paf3pdc7oj" path="res://addons/lilly's_component_plugin/lillycomponents/player_movement.gd" id="1_xhfnw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xhfnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
+
+[node name="Player2D" type="CharacterBody2D" unique_id=1539208886]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=366601026]
+scale = Vector2(18, 18)
+texture = SubResource("CanvasTexture_xhfnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=875692600]
+shape = SubResource("RectangleShape2D_kpjcp")
+
+[node name="PlayerInput2D" type="Node2D" parent="." unique_id=1025922911 node_paths=PackedStringArray("target")]
+script = ExtResource("1_xhfnw")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://c08paf3pdc7oj"

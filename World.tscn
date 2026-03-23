@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://drhm4uadjwb08"]
+
+[ext_resource type="PackedScene" uid="uid://dhrissyqt1l0m" path="res://Player.tscn" id="1_c6gwx"]
+
+[node name="Node" type="Node" unique_id=685492345]
+
+[node name="Player2D" parent="." unique_id=1539208886 instance=ExtResource("1_c6gwx")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1498436568]

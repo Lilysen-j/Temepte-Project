@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://puanjfw0iity"]
+
+[ext_resource type="Script" uid="uid://c08paf3pdc7oj" path="res://addons/lilly's_component_plugin/lillycomponents/player_movement.gd" id="1_6ws25"]
+[ext_resource type="Script" uid="uid://cr5ebjb8vi4dt" path="res://addons/lilly's_component_plugin/lillycomponents/hurt_box.gd" id="1_doc8a"]
+[ext_resource type="Script" uid="uid://drdir88qwmsnd" path="res://addons/lilly's_component_plugin/lillycomponents/hit_box.gd" id="2_3w17y"]
+[ext_resource type="Script" uid="uid://3qylemh6cbrp" path="res://addons/lilly's_component_plugin/lillycomponents/health_node.gd" id="2_4hld7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hld7"]
+size = Vector2(16, 26)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3w17y"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6ws25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfrn6"]
+size = Vector2(40, 26)
+
+[node name="Node" type="Node" unique_id=985219120]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=841829106]
+
+[node name="HitBox" type="Area2D" parent="CharacterBody2D" unique_id=2058586934 node_paths=PackedStringArray("healthNode")]
+script = ExtResource("2_3w17y")
+healthNode = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://drdir88qwmsnd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HitBox" unique_id=1922674550]
+shape = SubResource("RectangleShape2D_4hld7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1782553230]
+shape = SubResource("CapsuleShape2D_3w17y")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1784601979]
+position = Vector2(3.8743022e-07, -5.9604645e-08)
+scale = Vector2(14.000001, 24.000002)
+texture = SubResource("CanvasTexture_6ws25")
+
+[node name="PlayerInput2D" type="Node2D" parent="CharacterBody2D" unique_id=412579636 node_paths=PackedStringArray("target")]
+script = ExtResource("1_6ws25")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://c08paf3pdc7oj"
+
+[node name="HealthComponent" type="Node" parent="CharacterBody2D" unique_id=1873522849]
+script = ExtResource("2_4hld7")
+metadata/_custom_type_script = "uid://3qylemh6cbrp"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1892277560]
+
+[node name="HurtBox2" type="Area2D" parent="." unique_id=431906832]
+position = Vector2(48, 5)
+script = ExtResource("1_doc8a")
+damage = 5
+metadata/_custom_type_script = "uid://cr5ebjb8vi4dt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2" unique_id=1463758031]
+position = Vector2(2, -7)
+shape = SubResource("RectangleShape2D_dfrn6")
