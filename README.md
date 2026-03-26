@@ -7,8 +7,8 @@ included:
 * playermovement node
 
 # how to install
-get git locally by doing 
-```bash git pull https://github.com/Lilysen-j/Temepte-Project/```
+get git locally by doing in terminal
+``` git pull https://github.com/Lilysen-j/Temepte-Project/```
 
 then open godot and press **create new project**
 
